@@ -7,10 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		86C6F8232275B63700CD027B /* NSURLSession+PPSheep.h in Headers */ = {isa = PBXBuildFile; fileRef = 86C6F8212275B63700CD027B /* NSURLSession+PPSheep.h */; };
+		86C6F8242275B63700CD027B /* NSURLSession+PPSheep.m in Sources */ = {isa = PBXBuildFile; fileRef = 86C6F8222275B63700CD027B /* NSURLSession+PPSheep.m */; };
 		86DB51292275A84700CF8B56 /* CHHook.h in Headers */ = {isa = PBXBuildFile; fileRef = 86DB51272275A84700CF8B56 /* CHHook.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		86C6F8212275B63700CD027B /* NSURLSession+PPSheep.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSURLSession+PPSheep.h"; sourceTree = "<group>"; };
+		86C6F8222275B63700CD027B /* NSURLSession+PPSheep.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSURLSession+PPSheep.m"; sourceTree = "<group>"; };
 		86DB51242275A84700CF8B56 /* CHHook.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CHHook.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		86DB51272275A84700CF8B56 /* CHHook.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CHHook.h; sourceTree = "<group>"; };
 		86DB51282275A84700CF8B56 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -27,6 +31,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		86C6F81C2275B56A00CD027B /* Hook */ = {
+			isa = PBXGroup;
+			children = (
+				86C6F8212275B63700CD027B /* NSURLSession+PPSheep.h */,
+				86C6F8222275B63700CD027B /* NSURLSession+PPSheep.m */,
+			);
+			path = Hook;
+			sourceTree = "<group>";
+		};
 		86DB511A2275A84700CF8B56 = {
 			isa = PBXGroup;
 			children = (
@@ -46,6 +59,7 @@
 		86DB51262275A84700CF8B56 /* CHHook */ = {
 			isa = PBXGroup;
 			children = (
+				86C6F81C2275B56A00CD027B /* Hook */,
 				86DB51272275A84700CF8B56 /* CHHook.h */,
 				86DB51282275A84700CF8B56 /* Info.plist */,
 			);
@@ -59,6 +73,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				86C6F8232275B63700CD027B /* NSURLSession+PPSheep.h in Headers */,
 				86DB51292275A84700CF8B56 /* CHHook.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -130,6 +145,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				86C6F8242275B63700CD027B /* NSURLSession+PPSheep.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
