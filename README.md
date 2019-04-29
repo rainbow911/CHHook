@@ -5,6 +5,14 @@
 * 实现无入侵式的调试项目，有以下两个功能：
     * 打印当前视图控制器的名称
     * 打印App进行的网络请求（参考了[Hook_NSURLSession](https://github.com/yangqian111/PPSAnalytics/tree/master/Hook_NSURLSession)，进行了优化，实现打印请求参数！）
+* 技术点：
+    * load 方法，自动执行
+    * runtime methodSwizzle
+
+## 使用说明：
+
+1. Podfile中添加：`pod 'CHHook'`
+2. 执行：`pod install`
 
 ## Pod Update
 * 执行命令验证库：`pod lib lint --allow-warnings`
