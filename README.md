@@ -10,4 +10,4 @@
 * 执行命令验证库：`pod lib lint --allow-warnings`
 * 添加Tag并推送：`git tag -a 0.0.1 -m 'Version_0.0.1'; git push origin --tags`
     * 删除Tag本地/远端：`git tag -d 0.0.1; git push origin :refs/tags/0.0.1`
-* Push到版本库中：`pod repo push CHRepo CHKit.podspec --verbose --allow-warnings`
+* 推送到 Cocoapod 版本库：`pod trunk push CHHook.podspec`
