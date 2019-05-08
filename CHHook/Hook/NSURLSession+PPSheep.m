@@ -161,6 +161,7 @@ static void *varIsOpen = &varIsOpen;
 + (NSDictionary *)requestParameterWith:(NSURLRequest *)request {
     NSMutableDictionary *paramsDict = [NSMutableDictionary dictionaryWithCapacity:1];
     if (request.HTTPBody) {
+        //解析一：参数拼接的成String，String to Data 的方式
         NSString *aString = [[NSString alloc] initWithData:request.HTTPBody encoding:NSUTF8StringEncoding];
         NSArray *params = [aString componentsSeparatedByString:@"&"];
         for (NSString *subString in params) {
@@ -169,6 +170,16 @@ static void *varIsOpen = &varIsOpen;
                 NSString *key = [NSString stringWithFormat:@"%@", subParams[0]];
                 NSString *value = [NSString stringWithFormat:@"%@", subParams[1]];
                 [paramsDict setValue:value forKey:key];
+            }
+        }
+        //解析二：jsonData to NSDict
+        if (paramsDict.allKeys.count == 0) {
+            NSError *error;
+            NSDictionary *json = [NSJSONSerialization JSONObjectWithData:request.HTTPBody
+                                                                 options:kNilOptions
+                                                                   error:&error];
+            if (json.allKeys.count > 0) {
+                [paramsDict setValuesForKeysWithDictionary:json];
             }
         }
     }
