@@ -9,10 +9,12 @@
 
 Pod::Spec.new do |s|
     s.name             = 'CHHook'
-    s.version          = '0.0.1'
+    s.version          = '0.0.2'
     s.summary          = 'CHHook is Debug Tool'
 
 s.description      = <<-DESC
+0.0.2：增加多种解析，避免获取不到请求参数
+0.0.1：初始版本
 CHHook is Debug Tool, let you quick enter project
 DESC
 
