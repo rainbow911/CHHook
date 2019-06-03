@@ -19,13 +19,13 @@ static void Hook_Delegate_Method(Class originalClass, SEL originalSel, Class rep
         Method noneMethod = class_getInstanceMethod(replaceClass, noneSel);
         BOOL didAddNoneMethod = class_addMethod(originalClass, originalSel, method_getImplementation(noneMethod), method_getTypeEncoding(noneMethod));
         if (didAddNoneMethod) {
-            NSLog(@"【NSURLSession Hook】--------没有实现的delegate方法添加成功");
+            //NSLog(@"【NSURLSession Hook】--------没有实现的delegate方法添加成功");
         }
         return;
     }
     BOOL didAddReplaceMethod = class_addMethod(originalClass, replaceSel, method_getImplementation(replaceMethod), method_getTypeEncoding(replaceMethod));
     if (didAddReplaceMethod) {
-        NSLog(@"【NSURLSession Hook】--------hook方法添加成功");
+        //NSLog(@"【NSURLSession Hook】--------hook方法添加成功");
         Method newMethod = class_getInstanceMethod(originalClass, replaceSel);
         method_exchangeImplementations(originalMethod, newMethod);
     }
@@ -127,7 +127,7 @@ static void *varIsOpen = &varIsOpen;
 
 - (void)none_URLSession:(NSURLSession *)session dataTask:(NSURLSessionDataTask *)dataTask
          didReceiveData:(NSData *)data {
-    NSLog(@"11");
+    //NSLog(@"11111111");
 }
 
 // MARK: - DealWith Hook
@@ -139,7 +139,7 @@ static void *varIsOpen = &varIsOpen;
                            @"headers"   : request.allHTTPHeaderFields ? request.allHTTPHeaderFields : @{},
                            @"parameters": [NSURLSession requestParameterWith:request]};
     [[NSNotificationCenter defaultCenter] postNotificationName:@"NSURLSession_Hook_Request" object:nil userInfo:dict];
-    NSLog(@"【NSURLSession Hook】--------request: %@", dict);
+    //NSLog(@"【NSURLSession Hook】--------request: %@", dict);
 }
 
 // MARK: 处理请求响应
@@ -150,7 +150,7 @@ static void *varIsOpen = &varIsOpen;
         response = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
     }
     else {
-        NSLog(@"差点崩溃了。。。😂😂😂😂😂😂😂😂😂😂😂😂");
+        //NSLog(@"差点崩溃了。。。😂😂😂😂😂😂😂😂😂😂😂😂");
     }
     
     NSDictionary *dict = @{@"method"    : request.HTTPMethod ? request.HTTPMethod : @"http_method_unknow",
@@ -159,7 +159,7 @@ static void *varIsOpen = &varIsOpen;
                            @"parameters": [NSURLSession requestParameterWith:request],
                            @"response"  : response ? response : @{}};
     [[NSNotificationCenter defaultCenter] postNotificationName:@"NSURLSession_Hook_Response" object:nil userInfo:dict];
-    NSLog(@"【NSURLSession Hook】--------response: %@", dict);
+    //NSLog(@"【NSURLSession Hook】--------response: %@", dict);
 }
 
 // MARK: 获取请求参数

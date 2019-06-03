@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		869573F622A52AFD00BA9C54 /* CHHook.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 869573F522A52AFD00BA9C54 /* CHHook.podspec */; };
 		86C6F8232275B63700CD027B /* NSURLSession+PPSheep.h in Headers */ = {isa = PBXBuildFile; fileRef = 86C6F8212275B63700CD027B /* NSURLSession+PPSheep.h */; };
 		86C6F8242275B63700CD027B /* NSURLSession+PPSheep.m in Sources */ = {isa = PBXBuildFile; fileRef = 86C6F8222275B63700CD027B /* NSURLSession+PPSheep.m */; };
 		86C6F8272275B7EC00CD027B /* UIViewController+Hook.h in Headers */ = {isa = PBXBuildFile; fileRef = 86C6F8252275B7EB00CD027B /* UIViewController+Hook.h */; };
@@ -47,6 +48,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		869573F522A52AFD00BA9C54 /* CHHook.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CHHook.podspec; sourceTree = "<group>"; };
 		86C6F8212275B63700CD027B /* NSURLSession+PPSheep.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSURLSession+PPSheep.h"; sourceTree = "<group>"; };
 		86C6F8222275B63700CD027B /* NSURLSession+PPSheep.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSURLSession+PPSheep.m"; sourceTree = "<group>"; };
 		86C6F8252275B7EB00CD027B /* UIViewController+Hook.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Hook.h"; sourceTree = "<group>"; };
@@ -115,6 +117,7 @@
 		86DB511A2275A84700CF8B56 = {
 			isa = PBXGroup;
 			children = (
+				869573F522A52AFD00BA9C54 /* CHHook.podspec */,
 				86C6F82E22768BC400CD027B /* Demo */,
 				86DB51262275A84700CF8B56 /* CHHook */,
 				86DB51252275A84700CF8B56 /* Products */,
@@ -244,6 +247,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				869573F622A52AFD00BA9C54 /* CHHook.podspec in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
