@@ -24,7 +24,6 @@ s.author           = { 'Guowen Wang' => 'rainbow911@gmail.com' }
 s.source           = { :git => 'https://github.com/rainbow911/CHHook.git', :tag => s.version.to_s}
 
 s.ios.deployment_target = '9.0'
-
 s.source_files = 'CHHook/Hook/*'
 
 
