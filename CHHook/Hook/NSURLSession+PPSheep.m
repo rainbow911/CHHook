@@ -98,8 +98,12 @@ static void *varIsOpen = &varIsOpen;
             completionHandler(data,response,error);
         }
         
+        NSHTTPURLResponse *httpURLResponse = (NSHTTPURLResponse *)response;
+        NSDictionary *responseHeader = httpURLResponse.allHeaderFields;
+        responseHeader = responseHeader ? responseHeader : @{};
+        
         //请求完成的回调
-        [NSURLSession httpResponseWith:request data:data];
+        [NSURLSession httpResponseWith:request responseHeader:responseHeader data:data];
     };
     
     //发起请求
@@ -115,8 +119,9 @@ static void *varIsOpen = &varIsOpen;
 - (void)hook_URLSession:(NSURLSession *)session dataTask:(NSURLSessionDataTask *)dataTask
          didReceiveData:(NSData *)data {
     
-    [NSURLSession httpResponseWith:dataTask.originalRequest data:data];
-    
+    //暂时还未出现回调走这里的情况
+    [NSURLSession httpResponseWith:dataTask.originalRequest responseHeader:@{} data:data];
+
     [self hook_URLSession:session dataTask:dataTask didReceiveData:data];
 }
 
@@ -138,7 +143,7 @@ static void *varIsOpen = &varIsOpen;
 }
 
 // MARK: 处理请求响应
-+ (void)httpResponseWith:(NSURLRequest *)request data:(NSData *)data {
++ (void)httpResponseWith:(NSURLRequest *)request responseHeader:(NSDictionary *)header data:(NSData *)data {
     NSError *error;
     NSDictionary *response;
     if (data != nil) {
@@ -150,7 +155,7 @@ static void *varIsOpen = &varIsOpen;
     
     NSDictionary *dict = @{@"method"    : request.HTTPMethod ? request.HTTPMethod : @"http_method_unknow",
                            @"url"       : request.URL.absoluteString ? request.URL.absoluteString : @"http_url_unknow",
-                           @"headers"   : request.allHTTPHeaderFields ? request.allHTTPHeaderFields : @{},
+                           @"headers"   : header ? header : @{},
                            @"parameters": [NSURLSession requestParameterWith:request],
                            @"response"  : response ? response : @{}};
     [[NSNotificationCenter defaultCenter] postNotificationName:@"NSURLSession_Hook_Response" object:nil userInfo:dict];
