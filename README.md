@@ -17,7 +17,13 @@
 1. Podfile中添加：`pod 'CHHook'`
 2. 执行：`pod install`
 
+## 版本说明：
+
+* 如果是单独使用请使用版本`0.0.3`，Podfile中设置`pod 'CHHook', '0.0.3'`；
+* 如果是配合 CHLog 使用，请使用版本`0.0.4`，此版本为特殊版本，去掉了 NSLog。
+
 ## Pod Update
+
 * 执行命令验证库：`pod lib lint --allow-warnings`
 * 添加Tag并推送：`git tag -a 0.0.1 -m 'Version_0.0.1'; git push origin --tags`
     * 删除Tag本地/远端：`git tag -d 0.0.1; git push origin :refs/tags/0.0.1`
