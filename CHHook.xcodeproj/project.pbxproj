@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		869573F622A52AFD00BA9C54 /* CHHook.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 869573F522A52AFD00BA9C54 /* CHHook.podspec */; };
+		86AC15F622B7924400F2153C /* fishhook.c in Sources */ = {isa = PBXBuildFile; fileRef = 86AC15F422B7924400F2153C /* fishhook.c */; };
+		86AC15F722B7924400F2153C /* fishhook.h in Headers */ = {isa = PBXBuildFile; fileRef = 86AC15F522B7924400F2153C /* fishhook.h */; };
+		86AC15FE22B7927D00F2153C /* HookPrint.h in Headers */ = {isa = PBXBuildFile; fileRef = 86AC15FC22B7927D00F2153C /* HookPrint.h */; };
+		86AC15FF22B7927D00F2153C /* HookPrint.m in Sources */ = {isa = PBXBuildFile; fileRef = 86AC15FD22B7927D00F2153C /* HookPrint.m */; };
 		86C6F8232275B63700CD027B /* NSURLSession+PPSheep.h in Headers */ = {isa = PBXBuildFile; fileRef = 86C6F8212275B63700CD027B /* NSURLSession+PPSheep.h */; };
 		86C6F8242275B63700CD027B /* NSURLSession+PPSheep.m in Sources */ = {isa = PBXBuildFile; fileRef = 86C6F8222275B63700CD027B /* NSURLSession+PPSheep.m */; };
 		86C6F8272275B7EC00CD027B /* UIViewController+Hook.h in Headers */ = {isa = PBXBuildFile; fileRef = 86C6F8252275B7EB00CD027B /* UIViewController+Hook.h */; };
@@ -49,6 +53,10 @@
 
 /* Begin PBXFileReference section */
 		869573F522A52AFD00BA9C54 /* CHHook.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CHHook.podspec; sourceTree = "<group>"; };
+		86AC15F422B7924400F2153C /* fishhook.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = fishhook.c; sourceTree = "<group>"; };
+		86AC15F522B7924400F2153C /* fishhook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = fishhook.h; sourceTree = "<group>"; };
+		86AC15FC22B7927D00F2153C /* HookPrint.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HookPrint.h; sourceTree = "<group>"; };
+		86AC15FD22B7927D00F2153C /* HookPrint.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HookPrint.m; sourceTree = "<group>"; };
 		86C6F8212275B63700CD027B /* NSURLSession+PPSheep.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSURLSession+PPSheep.h"; sourceTree = "<group>"; };
 		86C6F8222275B63700CD027B /* NSURLSession+PPSheep.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSURLSession+PPSheep.m"; sourceTree = "<group>"; };
 		86C6F8252275B7EB00CD027B /* UIViewController+Hook.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Hook.h"; sourceTree = "<group>"; };
@@ -90,6 +98,10 @@
 		86C6F81C2275B56A00CD027B /* Hook */ = {
 			isa = PBXGroup;
 			children = (
+				86AC15F422B7924400F2153C /* fishhook.c */,
+				86AC15F522B7924400F2153C /* fishhook.h */,
+				86AC15FC22B7927D00F2153C /* HookPrint.h */,
+				86AC15FD22B7927D00F2153C /* HookPrint.m */,
 				86C6F8212275B63700CD027B /* NSURLSession+PPSheep.h */,
 				86C6F8222275B63700CD027B /* NSURLSession+PPSheep.m */,
 				86C6F8252275B7EB00CD027B /* UIViewController+Hook.h */,
@@ -151,8 +163,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				86C6F8272275B7EC00CD027B /* UIViewController+Hook.h in Headers */,
+				86AC15FE22B7927D00F2153C /* HookPrint.h in Headers */,
 				86C6F8232275B63700CD027B /* NSURLSession+PPSheep.h in Headers */,
 				86DB51292275A84700CF8B56 /* CHHook.h in Headers */,
+				86AC15F722B7924400F2153C /* fishhook.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -269,6 +283,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				86C6F8242275B63700CD027B /* NSURLSession+PPSheep.m in Sources */,
+				86AC15FF22B7927D00F2153C /* HookPrint.m in Sources */,
+				86AC15F622B7924400F2153C /* fishhook.c in Sources */,
 				86C6F8282275B7EC00CD027B /* UIViewController+Hook.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
