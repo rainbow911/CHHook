@@ -47,16 +47,16 @@ int    new___swbuf(int c, FILE *p) {
 // 发现新问题, 这个方法和NSLog重复了.. 所以把不hook NSLog了
 static ssize_t (*orig_writev)(int a, const struct iovec * v, int v_len);
 ssize_t new_writev(int a, const struct iovec *v, int v_len) {
-    NSMutableString *string = [NSMutableString string];
-    for (int i = 0; i < v_len; i++) {
-        char *c = (char *)v[i].iov_base;
+    if (v_len == 3) {
+        NSMutableString *string = [NSMutableString string];
+        char *c = (char *)v[1].iov_base;
         [string appendString:[NSString stringWithCString:c encoding:NSUTF8StringEncoding]];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [[HookPrint shared] noticePrint:string];
+            //[[logInWindowManager share] addPrintWithMessage:string needReturn:false];
+        });
     }
     ssize_t result = orig_writev(a, v, v_len);
-    dispatch_async(dispatch_get_main_queue(), ^{
-        [[HookPrint shared] noticePrint:string];
-        //[[logInWindowManager share] addPrintWithMessage:string needReturn:false];
-    });
     return result;
 }
 
@@ -106,7 +106,7 @@ void rebindFunction() {
 }
 
 - (void)noticePrint:(NSString *)message {
-    
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"HookPrint_Hook_Print" object:nil userInfo:@{@"print": message}];
 }
 
 @end
