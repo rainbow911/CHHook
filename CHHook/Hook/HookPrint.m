@@ -93,6 +93,7 @@ void rebindFunction() {
     /*
      pod 'LogInWindow'
      用fishhook hook输出方法(NSLog, print)：https://www.jianshu.com/p/98c97a32da29
+     fishhook：https://github.com/facebook/fishhook
      */
     //Hook NSLog 有效
     rebind_symbols((struct rebinding[1]){{"writev", new_writev, (void *)&orig_writev}}, 1);
