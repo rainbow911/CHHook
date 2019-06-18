@@ -12,6 +12,7 @@
 		86AC15F722B7924400F2153C /* fishhook.h in Headers */ = {isa = PBXBuildFile; fileRef = 86AC15F522B7924400F2153C /* fishhook.h */; };
 		86AC15FE22B7927D00F2153C /* HookPrint.h in Headers */ = {isa = PBXBuildFile; fileRef = 86AC15FC22B7927D00F2153C /* HookPrint.h */; };
 		86AC15FF22B7927D00F2153C /* HookPrint.m in Sources */ = {isa = PBXBuildFile; fileRef = 86AC15FD22B7927D00F2153C /* HookPrint.m */; };
+		86AC160222B7993600F2153C /* PrintTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86AC160122B7993600F2153C /* PrintTest.swift */; };
 		86C6F8232275B63700CD027B /* NSURLSession+PPSheep.h in Headers */ = {isa = PBXBuildFile; fileRef = 86C6F8212275B63700CD027B /* NSURLSession+PPSheep.h */; };
 		86C6F8242275B63700CD027B /* NSURLSession+PPSheep.m in Sources */ = {isa = PBXBuildFile; fileRef = 86C6F8222275B63700CD027B /* NSURLSession+PPSheep.m */; };
 		86C6F8272275B7EC00CD027B /* UIViewController+Hook.h in Headers */ = {isa = PBXBuildFile; fileRef = 86C6F8252275B7EB00CD027B /* UIViewController+Hook.h */; };
@@ -57,6 +58,8 @@
 		86AC15F522B7924400F2153C /* fishhook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = fishhook.h; sourceTree = "<group>"; };
 		86AC15FC22B7927D00F2153C /* HookPrint.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HookPrint.h; sourceTree = "<group>"; };
 		86AC15FD22B7927D00F2153C /* HookPrint.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HookPrint.m; sourceTree = "<group>"; };
+		86AC160022B7993600F2153C /* Demo-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Demo-Bridging-Header.h"; sourceTree = "<group>"; };
+		86AC160122B7993600F2153C /* PrintTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrintTest.swift; sourceTree = "<group>"; };
 		86C6F8212275B63700CD027B /* NSURLSession+PPSheep.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSURLSession+PPSheep.h"; sourceTree = "<group>"; };
 		86C6F8222275B63700CD027B /* NSURLSession+PPSheep.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSURLSession+PPSheep.m"; sourceTree = "<group>"; };
 		86C6F8252275B7EB00CD027B /* UIViewController+Hook.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Hook.h"; sourceTree = "<group>"; };
@@ -122,6 +125,8 @@
 				86C6F83A22768BC400CD027B /* LaunchScreen.storyboard */,
 				86C6F83D22768BC400CD027B /* Info.plist */,
 				86C6F83E22768BC400CD027B /* main.m */,
+				86AC160122B7993600F2153C /* PrintTest.swift */,
+				86AC160022B7993600F2153C /* Demo-Bridging-Header.h */,
 			);
 			path = Demo;
 			sourceTree = "<group>";
@@ -221,6 +226,7 @@
 				TargetAttributes = {
 					86C6F82C22768BC400CD027B = {
 						CreatedOnToolsVersion = 10.2;
+						LastSwiftMigration = 1020;
 					};
 					86DB51232275A84700CF8B56 = {
 						CreatedOnToolsVersion = 10.2;
@@ -275,6 +281,7 @@
 				86C6F83422768BC400CD027B /* ViewController.m in Sources */,
 				86C6F83F22768BC400CD027B /* main.m in Sources */,
 				86C6F83122768BC400CD027B /* AppDelegate.m in Sources */,
+				86AC160222B7993600F2153C /* PrintTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -323,6 +330,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7R5PJC2799;
 				INFOPLIST_FILE = Demo/Info.plist;
@@ -333,6 +341,9 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = rainbow.Demo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Demo/Demo-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -341,6 +352,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7R5PJC2799;
 				INFOPLIST_FILE = Demo/Info.plist;
@@ -351,6 +363,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = rainbow.Demo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Demo/Demo-Bridging-Header.h";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

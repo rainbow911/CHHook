@@ -11,6 +11,8 @@
 #import <stdio.h>
 #import "fishhook.h"
 
+// MARK: - Hook Swift，但是已经失效了。。。
+
 // 这两个方法是 swift 的print调用的
 static char *__chineseChar = {0};
 static int __buffIdx = 0;
@@ -33,8 +35,8 @@ size_t new_fwrite(const void * __restrict __ptr, size_t __size, size_t __nitems,
     return orig_fwrite(__ptr, __size, __nitems, __stream);
 }
 
-static int    (*orin___swbuf)(int, FILE *);
-int    new___swbuf(int c, FILE *p) {
+static int (*orin___swbuf)(int, FILE *);
+int new___swbuf(int c, FILE *p) {
     @synchronized (__syncToken) {
         __chineseChar = realloc(__chineseChar, sizeof(char) * (__buffIdx + 2));
         __chineseChar[__buffIdx] = (char)c;
@@ -43,6 +45,8 @@ int    new___swbuf(int c, FILE *p) {
     }
     return orin___swbuf(c, p);
 }
+
+// MARK: - Hook NSLog 方法一
 
 // 发现新问题, 这个方法和NSLog重复了.. 所以把不hook NSLog了
 static ssize_t (*orig_writev)(int a, const struct iovec * v, int v_len);
@@ -59,6 +63,8 @@ ssize_t new_writev(int a, const struct iovec *v, int v_len) {
     ssize_t result = orig_writev(a, v, v_len);
     return result;
 }
+
+// MARK: - Hook NSLog 方法二
 
 static void (*orig_NSLog)(NSString *format, ...);
 void(new_NSLog)(NSString *format, ...) {
@@ -84,8 +90,14 @@ void println(NSString *format, ...) {
 }
 
 void rebindFunction() {
-    //rebind_symbols((struct rebinding[1]){{"NSLog", new_NSLog, (void *)&orig_NSLog}}, 1);
+    /*
+     pod 'LogInWindow'
+     用fishhook hook输出方法(NSLog, print)：https://www.jianshu.com/p/98c97a32da29
+     */
+    //Hook NSLog 有效
     rebind_symbols((struct rebinding[1]){{"writev", new_writev, (void *)&orig_writev}}, 1);
+    //rebind_symbols((struct rebinding[1]){{"NSLog", new_NSLog, (void *)&orig_NSLog}}, 1);
+    //Hook print 无效
     rebind_symbols((struct rebinding[1]){{"fwrite", new_fwrite, (void *)&orig_fwrite}}, 1);
     rebind_symbols((struct rebinding[1]){{"__swbuf", new___swbuf, (void *)&orin___swbuf}}, 1);
 }

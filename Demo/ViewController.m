@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "Demo-Swift.h"
 
 @interface ViewController ()
 
@@ -17,7 +18,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    
+    [PrintTest printSomething];
 }
 
 
