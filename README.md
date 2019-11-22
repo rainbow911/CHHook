@@ -12,19 +12,23 @@
     * 当我们手上有一个新的项目的使用，我们在运行的项目的时候，可以随时打印当前项目进入到了哪个视图控制器，而不需要点击 Xcode 上的按钮来进行查看。相比起来更方便更快捷。
     * 另外就是项目如果有网络请求，也是可以随时打印当前视图控制器进行的网络请求的参数。
 
-## 使用说明：
+## 安装
 
-1. Podfile中添加：`pod 'CHHook'`
-2. 执行：`pod install`
+使用CocoaPods集成到项目中，在`Podfile`文件中添加：
+
+```ruby
+target '<Your Target Name>' do
+    pod 'CHHook'
+end
+```
+
+然后运行下面的命令：
+
+```bash
+$ pod install
+```
 
 ## 版本说明：
 
 * 如果是单独使用请使用版本`0.0.3`，Podfile中设置`pod 'CHHook', '0.0.3'`；
 * 如果是配合 CHLog 使用，请使用版本`0.0.4`，此版本为特殊版本，去掉了 NSLog。
-
-## Pod Update
-
-* 执行命令验证库：`pod lib lint --allow-warnings`
-* 添加Tag并推送：`git tag -a 0.0.1 -m 'Version_0.0.1'; git push origin --tags`
-    * 删除Tag本地/远端：`git tag -d 0.0.1; git push origin :refs/tags/0.0.1`
-* 推送到 Cocoapod 版本库：`pod trunk push CHHook.podspec`
