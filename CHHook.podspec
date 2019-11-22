@@ -9,10 +9,11 @@
 
 Pod::Spec.new do |s|
     s.name             = 'CHHook'
-    s.version          = '0.0.5'
+    s.version          = '0.0.6'
     s.summary          = 'CHHook is Debug Tool'
 
 s.description      = <<-DESC
+0.0.6：增加httpCode返回，子库化
 0.0.5：增加Hook NSLog方法，但是Swift Print Hook 无效
 0.0.4：去掉日志打印，方便和CHLog配合使用
 0.0.3：设置请求成功后打印后台返回的Header信息
@@ -26,8 +27,21 @@ s.license          = { :type => 'MIT', :file => 'LICENSE' }
 s.author           = { 'Guowen Wang' => 'rainbow911@gmail.com' }
 s.source           = { :git => 'https://github.com/rainbow911/CHHook.git', :tag => s.version.to_s}
 
+# OC库，无需制定swift版本
 s.ios.deployment_target = '9.0'
-s.source_files = 'CHHook/Hook/*'
+
+
+s.subspec 'Print' do |ss|
+	ss.source_files = 'CHHook/Print/*'
+end
+
+s.subspec 'URLSession' do |ss|
+	ss.source_files = 'CHHook/URLSession/*'
+end
+
+s.subspec 'UIViewController' do |ss|
+	ss.source_files = 'CHHook/UIViewController/*'
+end
 
 
 end
