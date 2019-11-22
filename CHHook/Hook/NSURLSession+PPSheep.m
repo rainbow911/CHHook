@@ -99,11 +99,12 @@ static void *varIsOpen = &varIsOpen;
         }
         
         NSHTTPURLResponse *httpURLResponse = (NSHTTPURLResponse *)response;
+        NSInteger httpCode = httpURLResponse.statusCode;
         NSDictionary *responseHeader = httpURLResponse.allHeaderFields;
         responseHeader = responseHeader ? responseHeader : @{};
         
         //请求完成的回调
-        [NSURLSession httpResponseWith:request responseHeader:responseHeader data:data];
+        [NSURLSession httpResponseWith:request statusCode:httpCode responseHeader:responseHeader data:data];
     };
     
     //发起请求
@@ -120,7 +121,7 @@ static void *varIsOpen = &varIsOpen;
          didReceiveData:(NSData *)data {
     
     //暂时还未出现回调走这里的情况
-    [NSURLSession httpResponseWith:dataTask.originalRequest responseHeader:@{} data:data];
+    //[NSURLSession httpResponseWith:dataTask.originalRequest responseHeader:@{} data:data];
 
     [self hook_URLSession:session dataTask:dataTask didReceiveData:data];
 }
@@ -143,7 +144,7 @@ static void *varIsOpen = &varIsOpen;
 }
 
 // MARK: 处理请求响应
-+ (void)httpResponseWith:(NSURLRequest *)request responseHeader:(NSDictionary *)header data:(NSData *)data {
++ (void)httpResponseWith:(NSURLRequest *)request statusCode:(NSInteger)httpCode responseHeader:(NSDictionary *)header data:(NSData *)data {
     NSError *error;
     NSDictionary *response;
     if (data != nil) {
@@ -157,9 +158,10 @@ static void *varIsOpen = &varIsOpen;
                            @"url"       : request.URL.absoluteString ? request.URL.absoluteString : @"http_url_unknow",
                            @"headers"   : header ? header : @{},
                            @"parameters": [NSURLSession requestParameterWith:request],
+                           @"httpCode"  : [NSString stringWithFormat:@"%@", @(httpCode)],
                            @"response"  : response ? response : @{}};
     [[NSNotificationCenter defaultCenter] postNotificationName:@"NSURLSession_Hook_Response" object:nil userInfo:dict];
-    //NSLog(@"【NSURLSession Hook】--------response: %@", dict);
+    NSLog(@"【NSURLSession Hook】--------response: %@", dict);
 }
 
 // MARK: 获取请求参数
