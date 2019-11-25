@@ -9,5 +9,5 @@
 #import <Foundation/Foundation.h>
 
 @interface NSURLSession (PPSheep)
-
++ (void)printWith:(NSString *)info;
 @end
