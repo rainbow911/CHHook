@@ -9,10 +9,11 @@
 
 Pod::Spec.new do |s|
     s.name             = 'CHHook'
-    s.version          = '0.0.6'
+    s.version          = '0.0.7'
     s.summary          = 'CHHook is Debug Tool'
 
 s.description      = <<-DESC
+0.0.7：URLSession Hook增加日志打印控制参数，优化日志打印效果
 0.0.6：增加httpCode返回，子库化
 0.0.5：增加Hook NSLog方法，但是Swift Print Hook 无效
 0.0.4：去掉日志打印，方便和CHLog配合使用

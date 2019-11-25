@@ -18,7 +18,10 @@
 
 ```ruby
 target '<Your Target Name>' do
-    pod 'CHHook'
+    //根据需要选择需要添加的字库
+    pod 'CHHook/Print' //hook打印，目前还有点问题
+    pod 'CHHook/URLSession' //hook网络请求
+    pod 'CHHook/UIViewController' //hook控制器，打印当前的控制器 
 end
 ```
 
@@ -27,6 +30,29 @@ end
 ```bash
 $ pod install
 ```
+
+### URLSession Hook 日志打印说明
+
+* 默认是不打印的，如果需要打印日志需要使用`NSUserDefaults`写入`Bool`控制参数`CH_URLSession_Hook`，并设置成`YES`
+
+Swift:
+
+```Swift
+#if DEBUG
+UserDefaults.standard.set(true, forKey: "CH_URLSession_Hook")
+UserDefaults.standard.synchronize()
+#endif
+```
+
+Objective-C:
+
+```Objective-C
+#ifdef DEBUG
+[[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"CH_URLSession_Hook"];
+[[NSUserDefaults standardUserDefaults] synchronize];
+#endif
+```
+
 
 ## 版本说明：
 
